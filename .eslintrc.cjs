@@ -16,5 +16,6 @@ module.exports = {
     "prefer-arrow-callback": "off",
     "react/react-in-jsx-scope": 0,
     "react/jsx-uses-react": 0,
+    "no-console": 0,
   },
 };

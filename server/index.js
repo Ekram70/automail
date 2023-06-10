@@ -1,21 +1,27 @@
 const express = require("express");
 const cors = require("cors");
-const sendEmailUtility = require("./SendEmailUtility");
+// const sendEmailUtility = require("./SendEmailUtility");
+const formatText = require("./FormatText");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.post("/mail", async (req, res) => {
-  const { email, text } = req.body;
+  const { text, users } = req.body;
 
-  const sendEmail = await sendEmailUtility(
-    email,
-    text,
-    "Invitation for Dhaka Seminar"
-  );
+  const emailText = formatText(text);
+  console.log(emailText);
 
-  res.status(200).json({ status: "success", data: sendEmail });
+  /* users.map(async (user) => {
+    await sendEmailUtility(
+      `${emailText}`,
+      text,
+      "Invitation for Dhaka Seminar"
+    );
+  }); */
+
+  res.status(200).json({ status: "success" });
 });
 
 // PORT
