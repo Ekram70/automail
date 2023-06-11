@@ -5,15 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "ac": "autocannon http://localhost:8000",
+    "pm2start": "pm2 start index.js -i max",
+    "pm2stop": "pm2 stop index",
+    "pm2delete": "pm2 delete index",
+    "pm2watch": "pm2 start index.js --watch -i max",
+    "pm2reload": "pm2 reload index",
+    "pm2list": "pm2 list",
+    "pm2logs": "pm2 logs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autocannon": "^7.11.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nodemailer": "^6.9.3",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "pm2": "^5.3.0"
   }
 }
